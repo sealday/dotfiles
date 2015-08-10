@@ -6,7 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 "Plugin 'sealday/conque'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'godlygeek/tabular'
@@ -52,8 +52,14 @@ set visualbell
 set fileencodings=utf8,gbk
 set wildmenu
 set incsearch
+set ignorecase
+set smartcase
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep = '► '
 let g:airline_right_sep = '◀︎ '
+
+let g:netrw_liststyle   = 3
+let g:netrw_winsize     = 30
+let g:netrw_preview     = 1
 
