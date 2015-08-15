@@ -29,7 +29,7 @@ syntax on
 
 set nonumber
 " 尝试一下，能不能习惯用这个，也不知道有没有必要使用相对的行号
-" 不过今天看到 相对行号里面可以看到当前的行号，觉得可以测试一下
+:cd
 " 当然，这个得在启用 number 的情况下才可以看到当前行号
 " 在我发现，如果文件比较大的情况下，行号占了好多列之后，我决定把number关了
 " 我可以从下面的状态栏看到有多少行
@@ -75,6 +75,7 @@ map <Leader>n :NERDTreeToggle<CR>
 map <Leader>u :Unite file_rec<CR>i
 map <Leader>l :bn<CR>
 map <Leader>h :bp<CR>
+map <leader>cc :cd %:h<cr>
 
 " no bell sound
 " set noeb
