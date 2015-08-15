@@ -2,8 +2,6 @@ set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 
-" |abcdefg|
-
 " plugins {{{
 call vundle#begin()
 
@@ -158,9 +156,18 @@ set hidden
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" 稍微处理了一下 命令行模式下 键绑定，这样可以不使用 左右键来移动
+" 我覆盖了原来按 <c-f> 进入命令行窗口，
+" 因为暂时不用，而且我可以通过另一个方式进去 q:
+" 这些键绑定属于 原来 readline 里面的键绑定
+" <c-u> 可以删除光标前所有字符
+" <c-w> 可以删除光标前一个单词
 cnoremap <c-a> <home>
 cnoremap <c-b> <Left>
+cnoremap <c-f> <Right>
 
+" 初始化脚本内的一个变量 dotvim，用来获取 .vim 的路径
+" 我这里似乎没必要这么复杂，但是我也没有什么理由换掉这个，感觉差不太多
 let s:dotvim = fnamemodify(globpath(&rtp, 'vim.dir'), ':p:h')
 exec 'set backupdir=' . s:dotvim . '/tmp/backup/'
 exec 'set undodir=' . s:dotvim . '/tmp/undo/'
@@ -182,7 +189,6 @@ augroup cline
   au InsertLeave * set cursorline 
 augroup END
 
-augroup END
 autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
@@ -240,8 +246,6 @@ augroup ft_vim
 augroup END
 " }}}
 
-
-
 inoremap kj 
 augroup ft_tmux
   au!
@@ -249,5 +253,3 @@ augroup ft_tmux
   au BufRead,BufNewFile .tmux.conf set ft=tmux
   au BufRead,BufNewFile tmux.conf set ft=tmux
 augroup END
-
-" *abcdefg*
