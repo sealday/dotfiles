@@ -14,7 +14,11 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'moll/vim-node'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'suan/vim-instant-markdown'
 "Plugin 'sealday/conque'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'godlygeek/tabular'
@@ -72,9 +76,9 @@ let mapleader = ' '
 map <Leader>t :TagbarToggle<CR>
 " for NERDTree
 map <Leader>n :NERDTreeToggle<CR>
-map <Leader>u :Unite file_rec<CR>i
-map <Leader>l :bn<CR>
-map <Leader>h :bp<CR>
+map <Leader>u :Unite -start-insert file_rec<CR>
+map <Leader>k :bn<CR>
+map <Leader>j :bp<CR>
 map <leader>cc :cd %:h<cr>
 
 " no bell sound
@@ -226,7 +230,7 @@ augroup trailing
 augroup END
 
 " clear search matching
-noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+noremap <leader>h :noh<cr>:call clearmatches()<cr>
 noremap * *<c-o>
 
 " .folding {{{
@@ -254,3 +258,18 @@ augroup ft_tmux
   au BufRead,BufNewFile .tmux.conf set ft=tmux
   au BufRead,BufNewFile tmux.conf set ft=tmux
 augroup END
+
+" 用来提权保存配置文件
+" cmap w!! w !sudo tee % > /dev/null
+
+" easy motion
+"
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+" set to bash
+" set shell=bash\ -i
+
+set shell=/bin/bash
