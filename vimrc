@@ -18,7 +18,7 @@ Plugin 'moll/vim-node'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'sealday/vim-markdown'
 "Plugin 'sealday/conque'
 "Plugin 'digitaltoad/vim-jade'
 "Plugin 'godlygeek/tabular'
@@ -272,4 +272,4 @@ endif
 " set to bash
 " set shell=bash\ -i
 
-set shell=/bin/bash
+set shell=bash
